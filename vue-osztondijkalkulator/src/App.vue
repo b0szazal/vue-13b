@@ -1,31 +1,6 @@
 <template>
   
-  <!-- The Modal -->
-<div class="modal" id="modal-osszeg">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Ösztöndíj összege</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        <h2 class="text-center">{{ osszeg }} Ft / hó</h2>
-        <!-- Ft / hó -->
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button @click="nullaz" type="button" class="btn btn-success" data-bs-dismiss="modal">Új kalkuláció</button>
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Bezár</button>
-      </div>
-
-    </div>
-  </div>
-</div>
+  <Modal :osztondij="osszeg" />
 
   <div class="container col-sm-12 col-md-6">
     <Navigation />
@@ -69,6 +44,7 @@
 <script setup>
 import { ref } from 'vue'
 import Navigation from '@/components/Navigation.vue'
+import Modal from './components/Modal.vue';
 
 const evism = ref(false)
 const evfolyamok = ref(['9','10','11','12','13','1/13','2/14'])
@@ -76,7 +52,7 @@ const tanulmanyiAtlag = ref("")
 const evf = ref()
 const mred = ref()
 const intezmenyTipusa = ref()
-const osszeg = ref()
+const osszeg = ref() 
 
 const kalkulal = () =>{
   tanulmanyiAtlag.value = tanulmanyiAtlag.value.replace(',','.')
@@ -125,5 +101,14 @@ const nullaz = () =>{
 </script>
 
 <style scoped>
-
+  button{
+    width: fit-content;
+    padding: 10px;
+    display: block;
+    margin: auto;
+    margin-top: 25px;
+  }
+  label{
+    margin-right: 10px;
+  }
 </style>
