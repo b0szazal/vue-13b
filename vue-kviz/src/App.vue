@@ -1,8 +1,8 @@
 <template>
-  <div class="container">
+  <div class="container bg-info">
     <h1>Everything is wrong quiz</h1>
-    <table>
-      <tbody>
+    <table class="table">
+      <tbody >
         <tr>
           <td>
             <p>A Föld fánk alakú:</p>
@@ -78,7 +78,7 @@ import Modal from './components/Modal.vue';
    }
 
    let oWA=oneWordAnswer.value;
-   if(oWA.split(" ").length<2){
+   if(oWA.split(" ").length==1){
      points++;
    }
    let checkboxpoints=0;
@@ -107,8 +107,12 @@ import Modal from './components/Modal.vue';
 .container {
   max-width: fit-content;
   margin: auto;
-  padding: 20px;
+  padding: 100px;
   margin-top: 20px;
+  border-radius: 15px;
+}
+h1{
+  margin-bottom: 25px;
 }
 button{
   display: block;
