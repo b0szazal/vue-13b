@@ -1,7 +1,4 @@
 <template>
-  
-  <Modal :osztondij="osszeg" />
-
   <div class="container col-sm-12 col-md-6">
     <Navigation />
     <h1 class="text-center">Ösztöndíj kalkulátor</h1>
@@ -11,11 +8,7 @@
     </div>
     <div class="parameterek" v-show="!evism">
      
-        <div>
-          <label for="intezmeny">Intézmény típusa: &nbsp; &nbsp;</label><br>
-          <span>Technikum: </span><input type="radio" v-model="intezmenyTipusa" id="intezmeny" value="technikum"><br>
-          <span>Szakképző iskola: </span><input type="radio" v-model="intezmenyTipusa" id="intemeny" value="szakkepzo">
-        </div>
+        <IntezmenyTipusa @tipus = "(tipus) => intezmenyTipusa = tipus" />
       
       <div>
         <label for="munkarend">Munkarend: &nbsp; &nbsp;</label><br>
@@ -38,13 +31,14 @@
     </div>
     <button @click="kalkulal" class="form-control btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-osszeg">Kalkulál</button>
   </div>
-  
+  <Modal :osztondij="osszeg" />
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import Navigation from '@/components/Navigation.vue'
 import Modal from './components/Modal.vue';
+import IntezmenyTipusa from './components/IntezmenyTipusa.vue';
 
 const evism = ref(false)
 const evfolyamok = ref(['9','10','11','12','13','1/13','2/14'])
@@ -52,10 +46,11 @@ const tanulmanyiAtlag = ref("")
 const evf = ref()
 const mred = ref()
 const intezmenyTipusa = ref()
-const osszeg = ref() 
+const osszeg = ref()
 
 const kalkulal = () =>{
   tanulmanyiAtlag.value = tanulmanyiAtlag.value.replace(',','.')
+  console.log(IntezmenyTipusa)
   if (evism.value){
     osszeg.value = 0;
   }
@@ -93,22 +88,15 @@ const kalkulal = () =>{
   }
  }
 
-const nullaz = () =>{
-  //console.log("Újra")
-  evism.value = false;
+const nullaz = () =>{   //Új kalkuláció indítása üres űrlap elemekkel
+  evism.value = false
+  intezmenyTipusa.value = ""
+  mrend.value = ""
+  tanulmanyiAtlag.value = ""
 }
 
 </script>
 
 <style scoped>
-  button{
-    width: fit-content;
-    padding: 10px;
-    display: block;
-    margin: auto;
-    margin-top: 25px;
-  }
-  label{
-    margin-right: 10px;
-  }
+
 </style>
