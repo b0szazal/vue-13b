@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+    import { ref } from 'vue';
     const intezmenyTipusa = ref("")
     const emit = defineEmits(['tipus'])
 

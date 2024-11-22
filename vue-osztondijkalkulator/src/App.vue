@@ -98,5 +98,14 @@ const nullaz = () =>{   //Új kalkuláció indítása üres űrlap elemekkel
 </script>
 
 <style scoped>
-
+button{
+  display: block;
+  max-width: fit-content;
+  padding: 10px;
+  margin: auto;
+  margin-top: 10px;
+}
+label{
+  margin-right: 10px;
+}
 </style>
