@@ -56,7 +56,7 @@
     </table>
     <button @click="checkAnswer" data-bs-toggle="modal" data-bs-target="#modal-result">Ellenőrizd</button>
   </div>
-  <Modal :result="result"/>
+  <Modal :result="result" :skill-issue="skillIssue"/>
 </template>
 
 <script setup>
@@ -67,7 +67,8 @@ import Modal from './components/Modal.vue';
  const genders = ref("");
  const oneWordAnswer=ref("");
  const checkboxValues = ref([false, false, false, false]);
- const result = ref("");
+ const result = ref(0);
+ const skillIssue = ref(false);
  const checkAnswer=()=>{
   let points=0;
    if(kvizradio.value === "true"){
@@ -78,7 +79,7 @@ import Modal from './components/Modal.vue';
    }
 
    let oWA=oneWordAnswer.value;
-   if(oWA.split(" ").length==1){
+   if(oWA.trim().split(" ").length==1 && oWA.trim().length!=0){
      points++;
    }
    let checkboxpoints=0;
@@ -100,7 +101,8 @@ import Modal from './components/Modal.vue';
    }
 
    result.value = `${points}`;
- };
+   skillIssue.value= points==0 ? true: false;
+};
 </script>
 
 <style scoped>

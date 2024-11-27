@@ -12,8 +12,8 @@
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                <h2 class="text-center">5 / {{ result }} </h2>
-                <!-- Ft / hó -->
+                    <h2 class="text-center">5 / {{ result }} </h2>
+                    <iframe  src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" width="420" height="315" v-show="skillIssue" allow="autoplay"></iframe>
                 </div>
 
                 <!-- Modal footer -->
@@ -28,6 +28,7 @@
 
 <script setup>
 const props = defineProps({
-  result : Number
+  result : Number,
+  skillIssue : Boolean
 })
 </script>
