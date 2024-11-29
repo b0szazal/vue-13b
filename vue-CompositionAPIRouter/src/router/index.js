@@ -20,7 +20,7 @@ const router = createRouter({
     },
     {
       path: '/lieDetails/:id',
-      name: 'home',
+      name: 'LiesDetails',
       component: LieDetailView,
     },
   ],
