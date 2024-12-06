@@ -7,15 +7,20 @@ import { RouterLink, RouterView } from 'vue-router'
     <div class="wrapper">
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/lies">Lies</RouterLink>
+        <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
   </header>
-
   <RouterView />
 </template>
 
 <style scoped>
+.wrapper{
+  margin: auto;
+  max-width: fit-content;
+}
+
+
 header {
   line-height: 1.5;
   max-height: 100vh;
@@ -26,10 +31,10 @@ header {
   margin: 0 auto 2rem;
 }
 
-
 nav {
+  display: flex;
   width: 100%;
-  font-size: 48px;
+  font-size: 12px;
   text-align: center;
   margin-top: 2rem;
 }
@@ -63,7 +68,6 @@ nav a:first-of-type {
     margin: 0 2rem 0 0;
   }
 
-
   header .wrapper {
     display: flex;
     place-items: flex-start;
@@ -74,7 +78,7 @@ nav a:first-of-type {
     text-align: left;
     margin-left: -1rem;
     font-size: 1rem;
-    font-size: 48px;
+
     padding: 1rem 0;
     margin-top: 1rem;
   }
