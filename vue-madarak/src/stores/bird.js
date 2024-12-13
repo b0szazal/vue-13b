@@ -25,7 +25,7 @@ export const useBirdStore = defineStore('bird', () => {
             fesztav : 220,
             ragadozo : true,
             ropkepes : true,
-            kep : 'https://www.europamadarai.hu/wp-content/uploads/2022/01/fekete-sas5.jpg'
+            kep : 'https://img.freepik.com/premium-vector/eagle-with-usa-flag-logo-design_1107171-163.jpg'
         },
         {
             id: 4,

@@ -28,6 +28,8 @@ const go= (id)=>{
     align-items: center;
     gap: 10px;
     background-color: #f8f9fa;
+    max-width: 75%;
+    margin: auto;
  }
  .madar, .img{
     width: 250px;

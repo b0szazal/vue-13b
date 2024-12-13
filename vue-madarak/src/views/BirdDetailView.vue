@@ -27,7 +27,7 @@ const madar=birdStore.madarak.find(m=>m.id==route.params.id);
 
 const szavazokDetail = (id) =>{
     birdStore.szavazok(id);
-    router.push('/about');  // Választók listájára navigálunk
+    router.push('/');
 }
 </script>
 
