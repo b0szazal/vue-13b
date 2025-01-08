@@ -24,8 +24,10 @@ import { RouterLink, RouterView } from 'vue-router'
     justify-content: center;
     align-items: center;
     gap: 10px;
-    background-color: #f8f9fa;
     margin-bottom: 25px;
+    max-width: fit-content;
+    padding: 5px;
+    margin: auto;
   }
   .nav-link{
     margin: 10px;
@@ -42,7 +44,7 @@ import { RouterLink, RouterView } from 'vue-router'
     background-color: #212529;
     color: white;
   }
-
+  
 </style>
 
 

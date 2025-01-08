@@ -30,10 +30,27 @@ export const useTasksStore = defineStore('tasks', () => {
         tasks.value.push(newTask)
     }
     
-    function editTask(index, editTask) {
-        tasks.value[index]=editTask
+    function editTask(editTask) {
+        tasks.value.find(task => task.id === editTask.id)=editTask
     }
 
+    function Complete(id){
+        let ctask = tasks.value.find(task => task.id === id)
+        if(!ctask.completed){
+            ctask.completed = true
+        }
+        else{
+            removeTask(id)
+        }
+    }
 
-    return {tasks, addTask, editTask}
+    function unComplete(id){
+        tasks.value.find(task => task.id === id).completed=false
+    }
+
+    function removeTask(id){
+        tasks.value = tasks.value.filter(task => task.id !== id)
+    }
+
+    return {tasks, addTask, editTask, Complete, unComplete}
 })
