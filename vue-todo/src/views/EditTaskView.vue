@@ -1,39 +1,43 @@
 <template>
   <main>
-    <table>
-      <tr>
-        <td>
-          <label for="name">Feladat neve: </label>
-        </td>
-        <td>
-          <input type="text" id="name">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label for="desc">Leírás: </label>
-        </td>
-        <td>
-          <textarea id="desc" name="desc"></textarea>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label for="deadl">Határidő: </label>
-        </td>
-        <td>
-          <input type="datetime-local" name="deadl" id="deadl">
-        </td>
-      </tr>
-    </table>
-    <div class="send">
-      <button @click="CreateTask()">Létrehozás</button>
-    </div>
+    <div v-if="tasksStore.taskToEdit">
+      <table >
+        <tr>
+          <td>
+            <label for="name">Feladat neve: </label>
+          </td>
+          <td>
+            <input type="text" id="name">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="desc">Leírás: </label>
+          </td>
+          <td>
+            <textarea id="desc" name="desc"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="deadl">Határidő: </label>
+          </td>
+          <td>
+            <input type="datetime-local" name="deadl" id="deadl">
+          </td>
+        </tr>
+      </table>
+      <div class="send">
+        <button @click="CreateTask()">Létrehozás</button>
+      </div>
+  </div>
   </main>
 </template>
   
-  <script setup>
-  </script>
+<script setup>
+import { useTasksStore } from '@/stores/tasksStore';
+  const tasksStore=useTasksStore()
+</script>
   
   <style scoped>
     main{

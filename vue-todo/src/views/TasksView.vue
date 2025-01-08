@@ -16,7 +16,14 @@
 
 <script setup>
 import { useTasksStore } from '@/stores/tasksStore';
+import {useRouter} from 'vue-router'
+
+const Router= useRouter()
 const tasksStore = useTasksStore();
+const GoToEditTask = (id) => {
+  tasksStore.findTaskToEdit(id);
+  Router.push('/edittask');
+}
 </script>
 
 <style scoped>

@@ -26,7 +26,11 @@ export const useTasksStore = defineStore('tasks', () => {
         }
     ])
 
-    const completedTasks = computed(() => tasks.value.filter(task => task.completed))
+    const taskToEdit = ref()
+
+    function findTaskToEdit(id){
+        taskToEdit.value = tasks.value.find(task => task.id === id)
+    }
 
     
     function addTask(newTaskname, newTaskdescription, newTaskdeadline) {
@@ -61,5 +65,5 @@ export const useTasksStore = defineStore('tasks', () => {
         tasks.value = tasks.value.filter(task => task.id !== id)
     }
 
-    return {tasks, addTask, editTask, Complete, unComplete}
+    return {tasks, addTask, editTask, Complete, unComplete, findTaskToEdit}
 })
