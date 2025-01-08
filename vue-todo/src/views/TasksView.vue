@@ -4,7 +4,7 @@
       <h2>{{ task.name }}</h2>
       <p>{{ task.description }}</p>
       <p>Állapot: {{ task.completed ? "kész" : "nincs kész" }}</p>
-      <p>határidő:  {{ task.deadline.getFullYear() }}-{{ task.deadline.getMonth() }}-{{ task.deadline.getDate() }}  </p>
+      <p>határidő:  {{ task.deadline.getFullYear() }}-{{ task.deadline.getMonth() }}-{{ task.deadline.getDate() }} {{ task.deadline.getHours() }}:{{ task.deadline.getMinutes() }} </p>
       <div class="actions">
         <button @click="tasksStore.Complete(task.id)">{{ !task.completed ? "Teljesítve" : "Törlés" }} </button>
         <button @click="GoToEditTask(task.id)" v-show="!task.completed"> Szerkesztés</button>

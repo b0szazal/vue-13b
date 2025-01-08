@@ -25,9 +25,18 @@ export const useTasksStore = defineStore('tasks', () => {
             deadline: new Date('2025-05-03') 
         }
     ])
+
+    const completedTasks = computed(() => tasks.value.filter(task => task.completed))
+
     
-    function addTask(newTask) {
-        tasks.value.push(newTask)
+    function addTask(newTaskname, newTaskdescription, newTaskdeadline) {
+        tasks.value.push({
+            id: tasks.value[tasks.value.length-1].id+1,
+            name: newTaskname,
+            description: newTaskdescription,
+            completed: false,
+            deadline: new Date(newTaskdeadline)
+        })
     }
     
     function editTask(editTask) {
