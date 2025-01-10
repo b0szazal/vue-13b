@@ -2,13 +2,13 @@
   <main>
     <div v-for="task in tasksStore.tasks" class="task">
       <h2>{{ task.name }}</h2>
-      <p>{{ task.description }}</p>
+      <div class="desc">{{ task.description }}</div>
       <p>Állapot: {{ task.completed ? "kész" : "nincs kész" }}</p>
-      <p>határidő:  {{ task.deadline.getFullYear() }}-{{ task.deadline.getMonth() }}-{{ task.deadline.getDate() }} {{ task.deadline.getHours() }}:{{ task.deadline.getMinutes() }} </p>
+      <p>határidő:  {{ task.deadline }} </p>
       <div class="actions">
+        <button @click="tasksStore.unComplete(task.id)" v-show="task.completed">Teljesítés visszavonása</button>
         <button @click="tasksStore.Complete(task.id)">{{ !task.completed ? "Teljesítve" : "Törlés" }} </button>
         <button @click="GoToEditTask(task.id)" v-show="!task.completed"> Szerkesztés</button>
-        <button @click="tasksStore.unComplete(task.id)" v-show="task.completed">Teljesítés visszavonása</button>
       </div>
     </div>
   </main>
@@ -20,6 +20,7 @@ import {useRouter} from 'vue-router'
 
 const Router= useRouter()
 const tasksStore = useTasksStore();
+
 const GoToEditTask = (id) => {
   tasksStore.findTaskToEdit(id);
   Router.push('/edittask');
@@ -39,6 +40,7 @@ const GoToEditTask = (id) => {
   .task{
     padding: 10px;
     margin: 10px;
+    max-width:25%;
     border: 1px solid #333;
     border-radius: 5px;
     min-width: 300px;
@@ -73,5 +75,8 @@ const GoToEditTask = (id) => {
   }
   button:focus{
     outline: none;
+  }
+  .desc{
+    word-wrap: break-word;
   }
 </style>

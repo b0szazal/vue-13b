@@ -6,27 +6,33 @@ export const useTasksStore = defineStore('tasks', () => {
         {
             id: 1,
             name: 'Task 1',
-            description: 'Description 1',
+            description: `Description 1`,
             completed: false,
-            deadline: new Date('2025-05-01') 
+            deadline: '2025-05-01'
         },
         {
             id: 2,
             name: 'Task 2',
-            description: 'Description 2',
+            description: `Description 2`,
             completed: false,
-            deadline: new Date('2025-05-02') 
+            deadline: '2025-05-02'
         },
         {
             id: 3,
             name: 'Task 3',
-            description: 'Description 3',
+            description: `Description 3`,
             completed: false,
-            deadline: new Date('2025-05-03') 
+            deadline: '2025-05-03'
         }
     ])
 
-    const taskToEdit = ref()
+    const taskToEdit = ref({
+        id: 0,
+        name: '',
+        description: ``,
+        completed: false,
+        deadline: ''
+    })
 
     function findTaskToEdit(id){
         taskToEdit.value = tasks.value.find(task => task.id === id)
@@ -36,15 +42,11 @@ export const useTasksStore = defineStore('tasks', () => {
     function addTask(newTaskname, newTaskdescription, newTaskdeadline) {
         tasks.value.push({
             id: tasks.value[tasks.value.length-1].id+1,
-            name: newTaskname,
-            description: newTaskdescription,
+            name: newTaskname || 'nincs név',
+            description: newTaskdescription || 'üres leírás',
             completed: false,
-            deadline: new Date(newTaskdeadline)
+            deadline: newTaskdeadline || 'nincs határidő'
         })
-    }
-    
-    function editTask(editTask) {
-        tasks.value.find(task => task.id === editTask.id)=editTask
     }
 
     function Complete(id){
@@ -65,5 +67,6 @@ export const useTasksStore = defineStore('tasks', () => {
         tasks.value = tasks.value.filter(task => task.id !== id)
     }
 
-    return {tasks, addTask, editTask, Complete, unComplete, findTaskToEdit}
+
+    return {tasks, taskToEdit, addTask, Complete, unComplete, findTaskToEdit}
 })

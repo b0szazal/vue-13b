@@ -1,34 +1,36 @@
 <template>
   <main>
-    <div v-if="tasksStore.taskToEdit">
+    <div>
       <table >
-        <tr>
-          <td>
-            <label for="name">Feladat neve: </label>
-          </td>
-          <td>
-            <input type="text" id="name">
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="desc">Leírás: </label>
-          </td>
-          <td>
-            <textarea id="desc" name="desc"></textarea>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="deadl">Határidő: </label>
-          </td>
-          <td>
-            <input type="datetime-local" name="deadl" id="deadl">
-          </td>
-        </tr>
+        <tbody>
+          <tr>
+            <td>
+              <label for="name">Feladat neve: </label>
+            </td>
+            <td>
+              <input type="text" id="name" v-model="tasksStore.taskToEdit.name">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="desc">Leírás: </label>
+            </td>
+            <td>
+              <textarea id="desc" name="desc" v-model="tasksStore.taskToEdit.description"></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="deadl">Határidő: </label>
+            </td>
+            <td>
+              <input type="date" name="deadl" id="deadl" v-model="tasksStore.taskToEdit.deadline">
+            </td>
+          </tr>
+        </tbody>
       </table>
       <div class="send">
-        <button @click="CreateTask()">Létrehozás</button>
+        <button @click="save()">Mentés</button>
       </div>
   </div>
   </main>
@@ -36,7 +38,16 @@
   
 <script setup>
 import { useTasksStore } from '@/stores/tasksStore';
+import { useRouter } from 'vue-router'
   const tasksStore=useTasksStore()
+  const Router=useRouter()
+
+const save= ()=>{
+  tasksStore.taskToEdit.name=tasksStore.taskToEdit.name || 'Nincs név'
+  tasksStore.taskToEdit.description=tasksStore.taskToEdit.description || 'Nincs leírás'
+  tasksStore.taskToEdit.deadline=tasksStore.taskToEdit.deadline || 'Nincs határidő'
+  Router.push('/tasks')
+}
 </script>
   
   <style scoped>

@@ -1,30 +1,32 @@
 <template>
     <main>
       <table>
-        <tr>
-          <td>
-            <label for="name">Feladat neve: </label>
-          </td>
-          <td>
-            <input type="text" id="name">
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="desc">Leírás: </label>
-          </td>
-          <td>
-            <textarea id="desc" name="desc"></textarea>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="deadl">Határidő: </label>
-          </td>
-          <td>
-            <input type="datetime-local" name="deadl" id="deadl">
-          </td>
-        </tr>
+        <tbody>
+          <tr>
+            <td>
+              <label for="name">Feladat neve: </label>
+            </td>
+            <td>
+              <input type="text" id="name">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="desc">Leírás: </label>
+            </td>
+            <td>
+              <textarea id="desc" name="desc"></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="deadl">Határidő: </label>
+            </td>
+            <td>
+              <input type="date" name="deadl" id="deadl">
+            </td>
+          </tr>
+        </tbody>
       </table>
       <div class="send">
         <button @click="CreateTask()">Létrehozás</button>
