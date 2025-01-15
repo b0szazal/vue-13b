@@ -2,7 +2,6 @@
   <div class="container col-sm-12 col-md-6">
     <RouterLink to="/tasks" class="nav-link">Feladatok</RouterLink>
     <RouterLink to="/newtask" class="nav-link">Új feladat</RouterLink>
-    <RouterLink to="/edittask" class="nav-link">Feladat szerkesztése</RouterLink>
   </div>
   <RouterView />
 </template>
