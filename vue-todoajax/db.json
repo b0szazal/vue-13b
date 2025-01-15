@@ -1,0 +1,42 @@
+{
+    "todos":[{
+        "id": 1,
+        "title": "Learn Vue",
+        "completed": false
+    },
+    {
+        "id": 2,
+        "title": "Learn Vuex",
+        "completed": false
+    },
+    {
+        "id": 3,
+        "title": "Learn Vue Router",
+        "completed": false
+    },
+    {
+        "id": 4,
+        "title": "Learn Vue CLI",
+        "completed": false
+    },
+    {
+        "id": 5,
+        "title": "Learn Vue 3",
+        "completed": false
+    }],
+    "users":[{
+        "id": 1,
+        "name": "John Doe",
+        "email": ""
+    },
+    {
+        "id": 2,
+        "name": "Jane Doe",
+        "email": ""
+    },
+    {
+        "id": 3,
+        "name": "John Smith",
+        "email": ""
+    }]
+}
