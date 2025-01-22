@@ -1,0 +1,21 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "tej",
+            "unit": "l",
+            "desc": "zsírtartalom: 2,8%",
+            "store": 20,
+            "price": "380 ft"
+        },
+        {
+            "id": 2,
+            "name": "kukorica konzerv",
+            "unit": "db",
+            "desc": "édes kukorica 340g",
+            "store": 100,
+            "price": "350 ft"
+        }
+    ],
+    "shoppingCart": []
+}
