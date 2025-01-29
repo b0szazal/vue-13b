@@ -8,7 +8,7 @@
         </nav>
       </div>
     </header>
-    <RouterView  class="mt-4"/>
+    <RouterView/>
   </div>
 </template>
 
