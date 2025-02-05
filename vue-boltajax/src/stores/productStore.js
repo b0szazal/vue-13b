@@ -57,5 +57,13 @@ export const useProductStore = defineStore('product', () => {
       })
   }
 
-  return { products , cart , fetchProducts, addToCart, removeOneFromCart, order  }
+  const addProduct=(object)=>{
+    object.id = products.value.length.toString()
+    axios.post('http://localhost:3000/bolt', object)
+    .then(res => {
+      products.value=fetchProducts()
+    })
+  }
+
+  return { products , cart , fetchProducts, addToCart, removeOneFromCart, order, addProduct}
 })

@@ -5,6 +5,7 @@
         <nav>
           <RouterLink to="/" class="m-5">Termkékek</RouterLink>
           <RouterLink to="/cart" class="m-5">Kosár</RouterLink>
+          <RouterLink to="/addProduct" class="m-5">Új termék</RouterLink>
         </nav>
       </div>
     </header>
