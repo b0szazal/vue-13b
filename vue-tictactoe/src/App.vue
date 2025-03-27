@@ -3,23 +3,23 @@
     <h1 class="text-center">Tic Tac Toe</h1>
     <button @click="reset()" class="resetButton">Reset</button>
     <div>
-      <div>
+      <div class="row">
         <div class="box" @click="markBox(1,1)" v-text="board[0][0]"></div>
         <div class="box" @click="markBox(1,2)" v-text="board[0][1]"></div>
         <div class="box" @click="markBox(1,3)" v-text="board[0][2]"></div>
       </div>
-      <div>
+      <div class="row">
         <div class="box" @click="markBox(2,1)" v-text="board[1][0]"></div>
         <div class="box" @click="markBox(2,2)" v-text="board[1][1]"></div>
         <div class="box" @click="markBox(2,3)" v-text="board[1][2]"></div>
       </div>
-      <div>
+      <div class="row">
         <div class="box" @click="markBox(3,1)" v-text="board[2][0]"></div>
         <div class="box" @click="markBox(3,2)" v-text="board[2][1]"></div>
         <div class="box" @click="markBox(3,3)" v-text="board[2][2]"></div>
       </div>
     </div>
-    <h2 class="text-center">Eredmények</h2>
+    <h2 class="text-center">Results</h2>
     <div v-text="tictactoeStore.results.value">
 
     </div>
@@ -61,8 +61,7 @@ const markBox=(row, column)=>{
   width: 100px;
   height: 100px;
   border: 1px solid black;
-  display: inline-block;
-  margin: 5px;
+   margin: 5px;
   text-align: center;
   line-height: 100px;
   font-size: 5em;
@@ -76,5 +75,9 @@ const markBox=(row, column)=>{
 }
 .text-center{
   text-align: center;
+}
+.row{
+  display: flex;
+  flex-direction: row;
 }
 </style>
