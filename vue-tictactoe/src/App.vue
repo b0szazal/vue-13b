@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <h1 class="text-center">Tic Tac Toe</h1>
+    <h3 class="text-center">Player to move:  {{ currentPlayer }}</h3>
     <button @click="reset()" class="resetButton">Reset</button>
     <div>
       <div class="row">
@@ -37,12 +38,16 @@ const board=ref([['', '', ''], ['', '', ''], ['', '', '']])
 const reset=()=>{
   tictactoeStore.reset();
   board.value=[['', '', ''], ['', '', ''], ['', '', '']]
+  currentPlayer.value = 'X';
 }
 
 const markBox=(row, column)=>{
   if(!tictactoeStore.CheckIfAlreadyMarked(row, column)){
     tictactoeStore.pushMark(row, column, currentPlayer.value);
     board.value[row-1][column-1]=currentPlayer.value;
+    if(tictactoeStore.CheckIfWinner()){
+      alert(currentPlayer.value+" won");
+    }
     currentPlayer.value = currentPlayer.value=='X' ? 'O' : 'X';
   }
 }
