@@ -44,10 +44,12 @@ export const useTicTacToeStore = defineStore('tictactoe', () => {
 
     for(let i=0; i<currentGame.value.length ; i++){
       for(let j=0; j<winningLines.length; j++) {
-        if(currentGame.value[i][0]==winningLines[j][0] && currentGame.value[i][1]==winningLines[j][1] && (currentLines[i][0]=='' ||currentLines[i][0]==currentGame.value[i][2])){
-          currentLines[j][1]++;
+        for(let k=0; k<3; k++){
+          if(currentGame.value[i][0]==winningLines[j][k] && currentGame.value[i][1]==winningLines[j][k] && (currentLines[i][0]=='' ||currentLines[i][0]==currentGame.value[i][2])){
+            currentLines[j][1]++;
+          }
+  
         }
-
         if(currentLines[j][1]==3){
           return true;
         }
